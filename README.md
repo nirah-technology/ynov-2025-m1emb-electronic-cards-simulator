@@ -1,3 +1,10 @@
+# Prérequis
+
+- Git
+- VS Code
+- MinGW (g++)
+
+
 # Armoire de cartes électronique.
 
 ## Les objects à créer :
