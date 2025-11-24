@@ -1,24 +1,15 @@
 #include <iostream>
+#include <string>
 
-#include "ElectronicCardManufacturer.h"
-#include "Rack.h"
-#include "ElectronicCard.h"
+// #include "ElectronicCardManufacturer.h"
+// #include "Rack.h"
+// #include "ElectronicCard.h"
 
-
+#include "MemoryDiscover.cpp"
 
 
 int main() {
-
-    Rack* rack = new Rack();
-    ElectronicCard* arduinoUno = new ElectronicCard();
-    arduinoUno->manufacturer = "Arduino";
-    arduinoUno->model = "Uno";
-    arduinoUno->ram = 1024;
-    arduinoUno->cpu_core_count = 1;
-    arduinoUno->cpu_frequency = 1.2;
-
-
-    rack->cards.push_back(*arduinoUno);
+    discover_pointers();
 
     return 0;
 }

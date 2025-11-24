@@ -2,6 +2,7 @@
 #define ELECTRONIC_CARD_H
 
 #include <vector>
+#include <string>
 
 struct ElectronicCard
 {
