@@ -9,6 +9,7 @@
 #include "ITParc.cpp"
 #include "HouseArchitect.cpp"
 #include "Car.cpp"
+#include "Screen.cpp"
 
 int main() {
     // Animal* pet = new Dog("Yorkshire", "Yuma");
@@ -93,10 +94,16 @@ int main() {
     std::cout << "Has garage: " << house->hasGarage << std::endl;
 
     CarCalculator* calculator = new CarCalculator();
-    Connector* connector = new OBDConnectorFacade(calculator);
+    Connector* connector = new USBConnectorFacade(calculator);
     connector->connect();
     connector->readData();
     connector->disconnect();
+
+    Screen* hdmiScreen = new Screen();
+    HDMIToVGADisplayAdapter* adapter = new HDMIToVGADisplayAdapter(hdmiScreen);
+    PC* pc = new PC(adapter);
+    pc->display();
+    
 
     return 0;
 }
