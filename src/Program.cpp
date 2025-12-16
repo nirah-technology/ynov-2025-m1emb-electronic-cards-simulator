@@ -10,6 +10,8 @@
 #include "HouseArchitect.cpp"
 #include "Car.cpp"
 #include "Screen.cpp"
+#include "TreeGame.cpp"
+#include "GitChain.cpp"
 
 int main() {
     // Animal* pet = new Dog("Yorkshire", "Yuma");
@@ -103,7 +105,30 @@ int main() {
     HDMIToVGADisplayAdapter* adapter = new HDMIToVGADisplayAdapter(hdmiScreen);
     PC* pc = new PC(adapter);
     pc->display();
-    
+
+    Tree*  super_tree = new Tree(10, 4, "Sapin Noel");
+    Forest* forest = new Forest();
+    forest->addTree(super_tree, 0, 0);
+    forest->addTree(super_tree, 10, 10);
+    forest->addTree(super_tree, 10, 20);
+    forest->addTree(super_tree, 12, 15);
+    forest->addTree(super_tree, 20, 20);
+    forest->render();
+
+    Step* utStep = new LaunchUnitTestsStep();
+    Step* qualityStep = new LaunchQualityTestsStep();
+    Step* securityStep = new LaunchSecurityTestsStep();
+    Step* compilationStep = new CompileStep();
+    Step* deployStep = new DeployBinarayStep();
+
+    utStep->set_next(qualityStep);
+    qualityStep->set_next(securityStep);
+    securityStep->set_next(compilationStep);
+    compilationStep->set_next(deployStep);
+
+    GitPipeline* pipeline = new GitPipeline(utStep);
+    pipeline->run();
+
 
     return 0;
 }
