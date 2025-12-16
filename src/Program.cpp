@@ -2,19 +2,25 @@
 #include <string>
 #include <fstream>
 
-#include "AnimalParc.cpp"
-#include "Logistic.cpp"
-#include "VehiculeFactory.cpp"
-#include "InteriorDesigner.cpp"
-#include "ITParc.cpp"
-#include "HouseArchitect.cpp"
-#include "Car.cpp"
-#include "Screen.cpp"
-#include "TreeGame.cpp"
-#include "GitChain.cpp"
-#include "TAJ.cpp"
-#include "SmartFlower.cpp"
-#include "TVController.cpp"
+// #include "tp/AnimalParc.cpp"
+// #include "tp/Logistic.cpp"
+// #include "tp/VehiculeFactory.cpp"
+// #include "tp/InteriorDesigner.cpp"
+// #include "tp/ITParc.cpp"
+// #include "tp/HouseArchitect.cpp"
+// #include "tp/Car.cpp"
+// #include "tp/Screen.cpp"
+// #include "tp/TreeGame.cpp"
+// #include "tp/GitChain.cpp"
+// #include "tp/TAJ.cpp"
+// #include "tp/SmartFlower.cpp"
+// #include "tp/TVController.cpp"
+
+#include "gamepad/Buttons.cpp"
+#include "gamepad/JoySticks.cpp"
+#include "gamepad/games/GodOfWar.cpp"
+#include "gamepad/PlayStationGamePad.cpp"
+
 
 int main() {
     // Animal* pet = new Dog("Yorkshire", "Yuma");
@@ -156,13 +162,15 @@ int main() {
     // flower->close();
     // flower->power_off();
 
-    TeleCommand tvCommand = TeleCommand();
-    tvCommand.powerOn();
-    tvCommand.powerOff();
-    tvCommand.channel1();
+    // TeleCommand tvCommand = TeleCommand();
+    // tvCommand.powerOn();
+    // tvCommand.powerOff();
+    // tvCommand.channel1();
     
+    PlayStationGamePad* gamePad = new PlayStationGamePad();
+    gamePad->attach_commond_to_x(new JumpCommand());
 
-
+    gamePad->press_c_button();
 
     return 0;
 }
